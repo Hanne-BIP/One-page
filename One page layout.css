@@ -1,0 +1,273 @@
+:root {
+  --background: #1471b6;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+    
+}
+
+body {
+    margin: 0;
+	background: #e5e4e1;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+    max-width: 974px; margin: 0 auto; 
+}
+
+
+h1 {
+    color: white;
+    font-size: 2em;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+.body {
+    height: 100%;
+    background-color: #333;
+    background-blend-mode: multiply;
+    background-size: cover;
+    color: #fff;
+    display: grid;
+    place-items: left;
+}
+
+#Versionsstyring{
+    padding: 0.2em;
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+    margin-top: 5.1em;
+    margin-bottom: 0.8em;
+    font-size: 1.2em;
+}
+
+#Git{
+    padding: 0.2em;
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+    margin-bottom: 0.88em;
+    font-size: 1.2em;
+}
+
+#GitHub{
+    padding: 0.2em;
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+    margin-bottom: 0.8em;
+    font-size: 1.2em;
+}
+
+#GitHubDesktop{
+    padding: 0.2em;
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+    margin-bottom: 0.8em;
+    font-size: 1.2em;
+}
+
+#AnvendelseAfVersionsstyring{
+    padding: 0.2em;
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+    margin-bottom: 0.8em;
+    font-size: 1.2em;
+}
+
+.stepimg {
+    max-width: 80%;
+    max-height: 80%;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+footer{
+    font-size: 1em;
+    text-align: right;
+    background-color: #1471b6;
+    color: #fff;
+    padding: 0.1em;
+    padding-right: 1.2em;
+    clear: both;
+    position: relative;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+/* navigation styles start here */
+
+header {
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    max-width: 974px; margin: 0 auto;
+}
+
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+    color: #fc824d;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+.logo {
+    color: #fff;
+    grid-column: 2 / 3;
+  }
+  
+  nav {
+    // all: unset; /* this causes issues with Edge, since it's unsupported */
+    
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+    /* end Edge support stuff */
+    
+    grid-column: 3 / 6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: #fc824d;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+}
